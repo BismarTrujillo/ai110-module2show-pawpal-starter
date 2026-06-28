@@ -5,6 +5,11 @@
 **a. Initial design**
 
 - Briefly describe your initial UML design.
+  - **Three core actions:**
+    1. Add a pet
+    2. schedule a walk
+    3. see today's tasks
+
 - What classes did you include, and what responsibilities did you assign to each?
 
 **b. Design changes**
