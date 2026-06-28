@@ -23,18 +23,23 @@ classDiagram
         +getAddress() String
         +setAddress(address: String)
         +addPet(pet: Pet)
-        +editPet(pet: Pet)
+        +editPet(name: String, updated_pet: Pet)
         +displayPets()
     }
 
     class Task {
+        -int id
+        -String title
         -DateTime time
-        -int duration
+        -int duration_minutes
         -Priority priority
+        +getId() int
+        +getTitle() String
+        +setTitle(title: String)
         +getTime() DateTime
         +setTime(time: DateTime)
-        +getDuration() int
-        +setDuration(duration: int)
+        +getDurationMinutes() int
+        +setDurationMinutes(duration_minutes: int)
         +getPriority() Priority
         +setPriority(priority: Priority)
     }
