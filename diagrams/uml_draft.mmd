@@ -4,13 +4,13 @@ classDiagram
         -String breed
         -String species
         -int age
-        -List~Appointment~ appointments
+        -List~Task~ tasks
         +getName() String
         +setName(name: String)
-        +getAppointments() List~Appointment~
-        +setAppointments(appointments: List~Appointment~)
-        +addAppointment(appointment: Appointment)
-        +deleteAppointment(appointment: Appointment)
+        +getTasks() List~Task~
+        +setTasks(tasks: List~Task~)
+        +addTask(task: Task)
+        +deleteTask(task: Task)
         +displaySchedule()
     }
 
@@ -27,7 +27,7 @@ classDiagram
         +displayPets()
     }
 
-    class Appointment {
+    class Task {
         -DateTime time
         -int duration
         -Priority priority
@@ -47,5 +47,5 @@ classDiagram
     }
 
     Owner "1" --> "0..*" Pet : owns
-    Pet "1" --> "0..*" Appointment : has
-    Appointment --> Priority : uses
+    Pet "1" --> "0..*" Task : has
+    Task --> Priority : uses

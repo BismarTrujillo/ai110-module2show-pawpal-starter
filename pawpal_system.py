@@ -10,7 +10,7 @@ class Priority(Enum):
 
 
 @dataclass
-class Appointment:
+class Task:
     time: datetime
     duration: int
     priority: Priority
@@ -22,12 +22,12 @@ class Pet:
     breed: str
     species: str
     age: int
-    appointments: list[Appointment] = field(default_factory=list)
+    tasks: list[Task] = field(default_factory=list)
 
-    def addAppointment(self, appointment: Appointment):
+    def addTask(self, task: Task):
         pass
 
-    def deleteAppointment(self, appointment: Appointment):
+    def deleteTask(self, task: Task):
         pass
 
     def displaySchedule(self):

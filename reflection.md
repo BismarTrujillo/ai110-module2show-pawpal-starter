@@ -5,10 +5,7 @@
 **a. Initial design**
 
 - Briefly describe your initial UML design.
-  - **Three core actions:**
-    1. Add a pet
-    2. schedule a walk
-    3. see today's tasks
+  consists of a Owner that owns 0 or more pets, and each pet has its own attributes, but the most important one is task
 
 - What classes did you include, and what responsibilities did you assign to each?
 
