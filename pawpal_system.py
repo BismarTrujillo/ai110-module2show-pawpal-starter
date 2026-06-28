@@ -1,6 +1,9 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
+from itertools import count
+
+_task_id_counter = count(1)
 
 
 class Priority(Enum):
@@ -11,9 +14,11 @@ class Priority(Enum):
 
 @dataclass
 class Task:
+    title: str
     time: datetime
-    duration: int
+    duration_minutes: int
     priority: Priority
+    id: int = field(default_factory=lambda: next(_task_id_counter))
 
 
 @dataclass
@@ -43,7 +48,7 @@ class Owner:
     def addPet(self, pet: Pet):
         pass
 
-    def editPet(self, pet: Pet):
+    def editPet(self, name: str, updated_pet: Pet):
         pass
 
     def displayPets(self):

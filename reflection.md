@@ -5,15 +5,28 @@
 **a. Initial design**
 
 - Briefly describe your initial UML design.
-  consists of a Owner that owns 0 or more pets, and each pet has its own attributes, but the most important one is task
+  consists of a Owner that owns 0 or more pets, and each pet has its own attributes, and has 0 or more tasks
 
 - What classes did you include, and what responsibilities did you assign to each?
+  - Owner
+    - can add or edit pets
+    - can add or edit tasks
+  - Pet
+    - has name, corresponding tasks
+  - Task
+    - has priority of different tasks
+    - displays duration 
 
 **b. Design changes**
 
 - Did your design change during implementation?
+  - Yes
 - If yes, describe at least one change and why you made it.
-
+  - in `Task` a description field was added. Now we can distinguised each task. 
+  - in `Task` identification was added
+  - updated `editPet` signature
+  - updated `duration` in `Task` 
+  - 
 ---
 
 ## 2. Scheduling Logic and Tradeoffs
