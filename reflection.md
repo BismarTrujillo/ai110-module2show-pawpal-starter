@@ -39,7 +39,9 @@
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
+  - Conflict detection compares every pair of tasks instead of using a faster sweep-line algorithm that sorts tasks and tracks overlapping intervals in one pass. The pairwise approach is O(n^2) a sweep-line would be O(n log n).
 - Why is that tradeoff reasonable for this scenario?
+    - PawPal+ schedules tasks for one owner's pets, so the task list is small (not thousands). At that scale the O(n^2) difference is unnoticeable, and the pairwise comparison is much simpler to read and verify than a sweep-line implementation.
 
 ---
 

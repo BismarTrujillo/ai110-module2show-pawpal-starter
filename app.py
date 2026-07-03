@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import datetime, date, time as dtime
-from pawpal_system import Task, Pet, Owner, Scheduler, Priority
+from pawpal_system import Task, Pet, Owner, Scheduler, Priority, Recurrence
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
@@ -104,6 +104,7 @@ with st.form("task_form"):
     with col3:
         task_duration = st.number_input("Duration (min)", min_value=1, max_value=480, value=30)
     task_priority = st.selectbox("Priority", ["low", "medium", "high"], index=1)
+    task_recurrence = st.selectbox("Repeats", ["none", "daily", "weekly"], index=0)
     add_task = st.form_submit_button("Add task")
 
 if add_task:
@@ -117,6 +118,7 @@ if add_task:
                 time             = datetime.combine(task_date, task_time),
                 duration_minutes = int(task_duration),
                 priority         = Priority(task_priority),
+                recurrence       = Recurrence(task_recurrence),
             ),
         )
         st.rerun()
@@ -139,9 +141,10 @@ else:
             col1, col2, col3 = st.columns([3, 1, 1])
             with col1:
                 label = f"~~{task.title}~~" if task.completed else task.title
+                repeats = f" · repeats {task.recurrence.value}" if task.recurrence != Recurrence.NONE else ""
                 st.markdown(
                     f"{label} — {task.time.strftime('%b %d, %H:%M')} · "
-                    f"{task.duration_minutes} min · `{task.priority.value}`"
+                    f"{task.duration_minutes} min · `{task.priority.value}`{repeats}"
                 )
             with col2:
                 st.caption("done" if task.completed else "pending")
